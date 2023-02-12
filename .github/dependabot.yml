@@ -1,0 +1,24 @@
+version: 2
+updates:
+  - package-ecosystem: "pypi"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "02:00"
+    open-pull-requests-limit: 10
+    reviewers:
+      - peaky76
+    assignees:
+      - peaky76
+    labels:
+      - "dependencies"
+    default-version-scheme: "increase"
+    review-dependencies:
+      - dependency-file-globs:
+          - "pyproject.toml"
+          - "requirements.txt"
+          - "Pipfile"
+      - package-manager-config:
+          file-glob: "poetry.lock"
+          command: "poetry"
+          arguments: "update"
