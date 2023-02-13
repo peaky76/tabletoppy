@@ -12,13 +12,3 @@ updates:
       - peaky76
     labels:
       - "dependencies"
-    default-version-scheme: "increase"
-    review-dependencies:
-      - dependency-file-globs:
-          - "pyproject.toml"
-          - "requirements.txt"
-          - "Pipfile"
-      - package-manager-config:
-          file-glob: "poetry.lock"
-          command: "poetry"
-          arguments: "update"
