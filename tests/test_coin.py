@@ -1,21 +1,21 @@
 from tabletoppy import Coin
 
+[HEADS, TAILS] = Coin.Face
+
 
 def test_initialize_coin_with_heads():
-    face = Coin.Face.HEADS
-    coin = Coin(face)
-    assert face == coin.face
+    coin = Coin(HEADS)
+    assert HEADS == coin.face
 
 
 def test_initialize_coin_with_tails():
-    face = Coin.Face.TAILS
-    coin = Coin(face)
-    assert face == coin.face
+    coin = Coin(TAILS)
+    assert TAILS == coin.face
 
 
 def test_initialize_coin_default_produces_either_heads_or_tails():
     coin = Coin()
-    assert coin.face in [Coin.Face.HEADS, Coin.Face.TAILS]
+    assert coin.face in [HEADS, TAILS]
 
 
 def test_initialize_coin_default_randomly_determines_heads_or_tails(mocker):
@@ -28,6 +28,5 @@ def test_initialize_coin_default_randomly_determines_heads_or_tails(mocker):
 def test_initialize_coin_default_sets_heads_or_tails_as_randomly_generated(mocker):
     mock_random = mocker.patch("tabletoppy.coin.random")
     mock_random.randint.return_value = 1
-    face = Coin.Face.HEADS
     coin = Coin()
-    assert face == coin.face
+    assert HEADS == coin.face
