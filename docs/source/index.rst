@@ -6,6 +6,11 @@
 Welcome to Tabletoppy's documentation!
 ======================================
 
+This is a simple library for creating simulations of tabletop and board games.
+It contains classes and methods for such things as tossing coins, rolling dice and drawing cards.
+
+Of course, most of this is trivially implemented without recourse to a library. It has largely been conceived as a coding, CI/CD and documentation exercise and may serve some small purpose as a handy wrapper for common randomisation functions.  
+
 Classes
 ========
 
