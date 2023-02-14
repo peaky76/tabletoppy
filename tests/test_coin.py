@@ -39,3 +39,15 @@ def test_toss_randomly_determines_heads_or_tails(mocker):
     coin.toss()
     mock_random.randint.assert_called_with(1, 2)
     mock_face.assert_called()
+
+
+def test_turn_coin_displaying_heads_puts_tails_on_display():
+    coin = Coin(HEADS)
+    coin.turn()
+    assert TAILS == coin.face
+
+
+def test_turn_coin_displaying_tails_puts_heads_on_display():
+    coin = Coin(TAILS)
+    coin.turn()
+    assert HEADS == coin.face
