@@ -48,4 +48,15 @@ class Coin:
         :rtype: Self
         """
         self.face = None
+
+    def turn(self) -> Self:
+        """Turns a coin to reveal the other face
+
+        :return: The turned coin with the other face on display
+        :rtype: Self
+        """
+        if self.face == Coin.Face.HEADS:
+            self.face = Coin.Face.TAILS
+        else:
+            self.face = Coin.Face.HEADS
         return self
