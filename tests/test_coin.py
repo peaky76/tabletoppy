@@ -32,6 +32,12 @@ def test_initialize_coin_default_sets_heads_or_tails_as_randomly_generated(mocke
     assert HEADS == coin.face
 
 
+def test_str_representation_of_coin_is_as_intended():
+    coin = Coin(HEADS)
+    expected = "Coin showing HEADS"
+    assert expected == str(coin)
+
+
 def test_is_heads_returns_true_when_coin_face_is_heads():
     coin = Coin(HEADS)
     assert coin.is_heads()
