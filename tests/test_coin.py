@@ -30,3 +30,15 @@ def test_initialize_coin_default_sets_heads_or_tails_as_randomly_generated(mocke
     mock_random.randint.return_value = 1
     coin = Coin()
     assert HEADS == coin.face
+
+
+def test_turn_coin_displaying_heads_puts_tails_on_display():
+    coin = Coin(HEADS)
+    coin.turn()
+    assert TAILS == coin.face
+
+
+def test_turn_coin_displaying_tails_puts_heads_on_display():
+    coin = Coin(TAILS)
+    coin.turn()
+    assert HEADS == coin.face
