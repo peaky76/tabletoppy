@@ -6,14 +6,13 @@
 Welcome to Tabletoppy's documentation!
 ======================================
 
+Classes
+========
+
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
-   usage
-
-
-
+   classes
 
 Indices and tables
 ==================

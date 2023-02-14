@@ -1,0 +1,2 @@
+   .. automodule:: tabletoppy.coin
+    :members:
