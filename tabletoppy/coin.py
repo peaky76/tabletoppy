@@ -41,6 +41,22 @@ class Coin:
         """
         self._face = value or Coin.Face(random.randint(1, 2))
 
+    def is_heads(self) -> bool:
+        """Convenience method for checking whether the coin is showing heads
+
+        :return: True if coin is showing heads, false otherwise
+        :rtype: bool
+        """
+        return self.face == Coin.Face.HEADS
+
+    def is_tails(self) -> bool:
+        """Convenience method for checking whether the coin is showing tails
+
+        :return: True if coin is showing tails, false otherwise
+        :rtype: bool
+        """
+        return self.face == Coin.Face.TAILS
+
     def toss(self) -> Self:
         """Toss the coin to randomly generate a heads or tails result
 
