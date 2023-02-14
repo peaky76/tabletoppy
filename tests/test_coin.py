@@ -30,3 +30,12 @@ def test_initialize_coin_default_sets_heads_or_tails_as_randomly_generated(mocke
     mock_random.randint.return_value = 1
     coin = Coin()
     assert HEADS == coin.face
+
+
+def test_toss_randomly_determines_heads_or_tails(mocker):
+    coin = Coin()
+    mock_random = mocker.patch("tabletoppy.coin.random")
+    mock_face = mocker.patch("tabletoppy.coin.Coin.Face")
+    coin.toss()
+    mock_random.randint.assert_called_with(1, 2)
+    mock_face.assert_called()

@@ -1,6 +1,6 @@
 from enum import Enum
 import random
-from typing import Optional
+from typing import Optional, Self
 
 
 class Coin:
@@ -40,3 +40,12 @@ class Coin:
         :type value: Optional[Face], optional
         """
         self._face = value or Coin.Face(random.randint(1, 2))
+
+    def toss(self) -> Self:
+        """Toss the coin to randomly generate a heads or tails result
+
+        :return: The same coin with either heads or tails showing, determined randomly
+        :rtype: Self
+        """
+        self.face = None
+        return self
