@@ -21,7 +21,7 @@ class Coin:
         self.face = face
 
     def __str__(self):
-        pass
+        return f"Coin showing {self.face.name}"
 
     @property
     def face(self) -> Face:
