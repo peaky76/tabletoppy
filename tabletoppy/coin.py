@@ -48,6 +48,7 @@ class Coin:
         :rtype: Self
         """
         self.face = None
+        return self
 
     def turn(self) -> Self:
         """Turns a coin to reveal the other face
