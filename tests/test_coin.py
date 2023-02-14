@@ -32,6 +32,26 @@ def test_initialize_coin_default_sets_heads_or_tails_as_randomly_generated(mocke
     assert HEADS == coin.face
 
 
+def test_is_heads_returns_true_when_coin_face_is_heads():
+    coin = Coin(HEADS)
+    assert coin.is_heads()
+
+
+def test_is_heads_returns_false_when_coin_face_is_heads():
+    coin = Coin(TAILS)
+    assert not coin.is_heads()
+
+
+def test_is_tails_returns_true_when_coin_face_is_heads():
+    coin = Coin(TAILS)
+    assert coin.is_tails()
+
+
+def test_is_tails_returns_false_when_coin_face_is_heads():
+    coin = Coin(HEADS)
+    assert not coin.is_tails()
+
+
 def test_toss_randomly_determines_heads_or_tails(mocker):
     coin = Coin()
     mock_random = mocker.patch("tabletoppy.coin.random")
