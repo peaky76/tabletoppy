@@ -1,2 +1,2 @@
-   .. automodule:: tabletoppy.coin
+   .. autoclass:: tabletoppy.coin.Coin
     :members:
