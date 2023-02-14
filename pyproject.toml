@@ -17,6 +17,7 @@ black = "^23.1.0"
 coverage = "^7.1.0"
 pytest = "^7.2.1"
 pytest-mock = "^3.10.0"
+auto-changelog = "^0.6.0"
 
 [build-system]
 requires = ["poetry-core"]
