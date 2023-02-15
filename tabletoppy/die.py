@@ -3,14 +3,14 @@ from typing import Optional, Self
 
 
 class Die:
-    def __init__(self, sides: Optional[int] = 6):
+    def __init__(self, sides: Optional[int] = 6, face: Optional[int] = None):
         """Initializer for a die object
 
         :param sides: The number of sides on the die, defaults to 6
         :type sides: Optional[int], optional
         """
         self.sides = sides
-        self.face = None
+        self.face = face
 
     @property
     def face(self) -> int:
