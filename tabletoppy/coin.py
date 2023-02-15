@@ -6,11 +6,8 @@ from typing import Optional, Self
 class Coin:
     """A class used to represent a coin with two sides, heads and tails"""
 
-    class Face(Enum):
-        """An Enum class representing the two sides of a coin"""
-
-        HEADS = 1
-        TAILS = 2
+    Face = Enum("Face", ["HEADS", "TAILS"])
+    """An Enum representing the two sides of a coin"""
 
     def __init__(self, face: Optional[Face] = None):
         """Initializer for a coin object
