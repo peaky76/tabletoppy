@@ -28,3 +28,10 @@ def test_initialize_sets_face_as_randomly_generated(mocker):
     mock_random.randint.return_value = 4
     die = Die()
     assert 4 == die.face
+
+
+def test_roll_randomly_determines_a_face_to_display(mocker):
+    die = Die()
+    mock_random = mocker.patch("tabletoppy.die.random")
+    die.roll()
+    mock_random.randint.assert_called_with(1, 6)

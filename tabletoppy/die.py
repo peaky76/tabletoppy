@@ -1,5 +1,5 @@
 import random
-from typing import Optional
+from typing import Optional, Self
 
 
 class Die:
@@ -29,3 +29,12 @@ class Die:
         :type value: Optional[int], optional
         """
         self._face = value or random.randint(1, self.sides)
+
+    def roll(self) -> Self:
+        """Roll the die to randomly generate a number matching one of the sides
+
+        :return: The die with a randomly determined face lying uppermost
+        :rtype: Self
+        """
+        self.face = None
+        return self
