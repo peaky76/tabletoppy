@@ -5,6 +5,9 @@ description = "A Python library for simulating tabletop games, including dice ro
 authors = ["peaky76 <robertjamespeacock@gmail.com>"]
 license = "GPL-3.0-only"
 readme = "README.md"
+repository = "https://github.com/peaky76/tabletoppy"
+documentation = "https://tabletoppy.readthedocs.io/"
+keywords = ["games", "dice", "cards"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
