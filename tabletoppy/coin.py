@@ -1,9 +1,10 @@
 from enum import Enum
-import random
 from typing import Self
 
+from tabletoppy.randomisable import Randomisable
 
-class Coin:
+
+class Coin(Randomisable):
     """A class used to represent a coin with two sides, heads and tails"""
 
     Face = Enum("Face", ["HEADS", "TAILS"])
@@ -15,28 +16,19 @@ class Coin:
         :param face: The face currently displayed to the world, defaults to None, which will result in heads or tails being set at random
         :type face: Optional[Face], optional
         """
-        self.face = face
+        super().__init__(Coin.Face, face)
 
     def __str__(self):
         return f"Coin showing {self.face.name}"
 
-    def get_face(self) -> Face:  # type: ignore
-        """Getter for the face attribute
+    @property
+    def face(self) -> Face:
+        """The face currently displayed to the world
 
         :return: The face currently displayed to the world
         :rtype: Face
         """
-        return self._face
-
-    def set_face(self, value: Face | None = None) -> None:
-        """Setter for the face attribute
-
-        :param value: The face currently displayed to the world, defaults to None, which will result in heads or tails being set at random
-        :type value: Optional[Face], optional
-        """
-        self._face = value or Coin.Face(random.randint(1, 2))
-
-    face = property(get_face, set_face)
+        return self.selection
 
     def is_heads(self) -> bool:
         """Convenience method for checking whether the coin is showing heads
@@ -60,7 +52,7 @@ class Coin:
         :return: The same coin with either heads or tails showing, determined randomly
         :rtype: Self
         """
-        self.face = None
+        self._reset()
         return self
 
     def turn(self) -> Self:
@@ -69,8 +61,8 @@ class Coin:
         :return: The turned coin with the other face on display
         :rtype: Self
         """
-        if self.face == Coin.Face.HEADS:
-            self.face = Coin.Face.TAILS
+        if self.selection == Coin.Face.HEADS:
+            self.selection = Coin.Face.TAILS
         else:
-            self.face = Coin.Face.HEADS
+            self.selection = Coin.Face.HEADS
         return self
