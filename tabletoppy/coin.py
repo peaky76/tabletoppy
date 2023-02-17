@@ -25,7 +25,7 @@ class Coin(Randomisable):
         :return: The face currently displayed to the world
         :rtype: Face
         """
-        return self.selection
+        return self._selection
 
     def is_heads(self) -> bool:
         """Convenience method for checking whether the coin is showing heads
@@ -58,8 +58,8 @@ class Coin(Randomisable):
         :return: The turned coin with the other face on display
         :rtype: Self
         """
-        if self.selection == Coin.Face.HEADS:
-            self.selection = Coin.Face.TAILS
+        if self._selection == Coin.Face.HEADS:
+            self._selection = Coin.Face.TAILS
         else:
-            self.selection = Coin.Face.HEADS
+            self._selection = Coin.Face.HEADS
         return self
