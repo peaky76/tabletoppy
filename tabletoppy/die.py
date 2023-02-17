@@ -1,8 +1,10 @@
-import random
+from enum import Enum
 from typing import Self
 
+from tabletoppy.randomisable import Randomisable
 
-class Die:
+
+class Die(Randomisable):
     def __init__(self, sides: int = 6, face: int | None = None):
         """Initializer for a die object
 
@@ -10,25 +12,17 @@ class Die:
         :type sides: Optional[int], optional
         """
         self.sides = sides
-        self.face = face
+        Face = Enum("Face", [str(x + 1) for x in range(sides)])
+        super().__init__(Face, Face(face) if face else None)
 
-    def get_face(self) -> int:  # type: ignore
+    @property
+    def face(self) -> int:
         """Getter for the face attribute
 
         :return: The current uppermost face of the die
         :rtype: int
         """
-        return self._face
-
-    def set_face(self, value: int | None = None) -> None:
-        """Setter for the face attribute
-
-        :param value: The current uppermost face of the die, defaults to None, which will set it randomly
-        :type value: Optional[int], optional
-        """
-        self._face = value or random.randint(1, self.sides)
-
-    face = property(get_face, set_face)
+        return int(self._selection.name)
 
     def roll(self) -> Self:
         """Roll the die to randomly generate a number matching one of the sides
@@ -36,5 +30,5 @@ class Die:
         :return: The die with a randomly determined face lying uppermost
         :rtype: Self
         """
-        self.face = None
+        self._reset()
         return self
