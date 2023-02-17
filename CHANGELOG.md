@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.2.1 (2023-02-17)
+
+#### Refactorings
+
+- convert Coin.Face Enum to functional syntax
+- add Randomisable abstract base class
+- make Coin subclass of Randomiser
+- make Die subclass of Randomiser
+
+#### Other
+
+- implement type checking with mypy
+
 ## 0.2.0 (2023-02-15)
 
 #### New Features
