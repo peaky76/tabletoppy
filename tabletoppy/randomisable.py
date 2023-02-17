@@ -18,6 +18,9 @@ class Randomisable(ABC):
         self.options = options
         self.selection = selection
 
+    def __str__(self):
+        return f"{self.__class__.__name__} showing {self.selection.name}"
+
     def get_selection(self) -> _E:  # type: ignore
         """Getter for the current selection
 
