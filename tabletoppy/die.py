@@ -12,7 +12,7 @@ class Die(Randomisable):
         :type sides: Optional[int], optional
         """
         self.sides = sides
-        Face = Enum("Face", [str(x + 1) for x in range(sides)])
+        Face = Enum("Face", [str(x + 1) for x in range(sides)])  # type: ignore
         super().__init__(Face, Face(face) if face else None)
 
     @property
