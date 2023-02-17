@@ -12,8 +12,7 @@ class Die:
         self.sides = sides
         self.face = face
 
-    @property
-    def face(self) -> int:  # type: ignore
+    def get_face(self) -> int:  # type: ignore
         """Getter for the face attribute
 
         :return: The current uppermost face of the die
@@ -21,14 +20,15 @@ class Die:
         """
         return self._face
 
-    @face.setter
-    def face(self, value: int | None = None) -> None:
+    def set_face(self, value: int | None = None) -> None:
         """Setter for the face attribute
 
         :param value: The current uppermost face of the die, defaults to None, which will set it randomly
         :type value: Optional[int], optional
         """
         self._face = value or random.randint(1, self.sides)
+
+    face = property(get_face, set_face)
 
     def roll(self) -> Self:
         """Roll the die to randomly generate a number matching one of the sides
