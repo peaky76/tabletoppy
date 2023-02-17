@@ -1,6 +1,6 @@
 from enum import Enum
 import random
-from typing import Optional, Self
+from typing import Self
 
 
 class Coin:
@@ -9,7 +9,7 @@ class Coin:
     Face = Enum("Face", ["HEADS", "TAILS"])
     """An Enum representing the two sides of a coin"""
 
-    def __init__(self, face: Optional[Face] = None):
+    def __init__(self, face: Face | None = None):
         """Initializer for a coin object
 
         :param face: The face currently displayed to the world, defaults to None, which will result in heads or tails being set at random
@@ -21,7 +21,7 @@ class Coin:
         return f"Coin showing {self.face.name}"
 
     @property
-    def face(self) -> Face:
+    def face(self) -> Face:  # type: ignore
         """Getter for the face attribute
 
         :return: The face currently displayed to the world
@@ -30,7 +30,7 @@ class Coin:
         return self._face
 
     @face.setter
-    def face(self, value: Optional[Face] = None) -> None:
+    def face(self, value: Face | None = None) -> None:
         """Setter for the face attribute
 
         :param value: The face currently displayed to the world, defaults to None, which will result in heads or tails being set at random

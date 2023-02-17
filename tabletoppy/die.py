@@ -1,9 +1,9 @@
 import random
-from typing import Optional, Self
+from typing import Self
 
 
 class Die:
-    def __init__(self, sides: Optional[int] = 6, face: Optional[int] = None):
+    def __init__(self, sides: int = 6, face: int | None = None):
         """Initializer for a die object
 
         :param sides: The number of sides on the die, defaults to 6
@@ -13,7 +13,7 @@ class Die:
         self.face = face
 
     @property
-    def face(self) -> int:
+    def face(self) -> int:  # type: ignore
         """Getter for the face attribute
 
         :return: The current uppermost face of the die
@@ -22,7 +22,7 @@ class Die:
         return self._face
 
     @face.setter
-    def face(self, value: Optional[int] = None) -> None:
+    def face(self, value: int | None = None) -> None:
         """Setter for the face attribute
 
         :param value: The current uppermost face of the die, defaults to None, which will set it randomly
