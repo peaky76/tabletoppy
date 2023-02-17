@@ -40,6 +40,10 @@ jobs:
         run: |
           poetry run black --check --verbose .
 
+      - name: Run static type checking
+        run: |
+          poetry run mypy tabletoppy
+
       - name: Run tests
         run: |
           poetry run pytest --cov-fail-under=100
