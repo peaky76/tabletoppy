@@ -18,8 +18,7 @@ class Randomisable(ABC):
         self.options = options
         self.selection = selection
 
-    @property
-    def selection(self) -> _E:  # type: ignore
+    def get_selection(self) -> _E:  # type: ignore
         """Getter for the current selection
 
         :return: The currently selected option
@@ -27,8 +26,7 @@ class Randomisable(ABC):
         """
         return self._selection
 
-    @selection.setter
-    def selection(self, value: _E | None = None) -> None:
+    def set_selection(self, value: _E | None = None) -> None:
         """Setter for the current selection
 
         :param value: The option which will become the new selection, defaults to None at which point an option will be selected at random
@@ -38,6 +36,8 @@ class Randomisable(ABC):
         if value and not isinstance(value, Enum):
             raise TypeError(f"{value} is not an instance of {self.options}")
         self._selection = value or self.options(self._randomiser())
+
+    selection = property(get_selection, set_selection)
 
     def _randomiser(self) -> int:
         """Private function to generate a integer corresponding to one of the options
