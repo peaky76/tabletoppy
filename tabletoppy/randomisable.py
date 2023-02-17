@@ -15,7 +15,7 @@ class Randomisable(ABC):
         :param selection: The currently selected value, defaults to None, which will result in a value being selected at random
         :type selection: Optional[Enum], optional
         """
-        self.options = options
+        self._options = options
         self.selection = selection
 
     def __str__(self):
@@ -37,8 +37,8 @@ class Randomisable(ABC):
         :raises TypeError: if a suitable option has not been given
         """
         if value and not isinstance(value, Enum):
-            raise TypeError(f"{value} is not an instance of {self.options}")
-        self._selection = value or self.options(self._randomiser())
+            raise TypeError(f"{value} is not an instance of {self._options}")
+        self._selection = value or self._options(self._randomiser())
 
     selection = property(get_selection, set_selection)
 
@@ -48,7 +48,7 @@ class Randomisable(ABC):
         :return: An integer corresponding to a value in the options
         :rtype: int
         """
-        return random.randint(1, len(self.options))
+        return random.randint(1, len(self._options))
 
     def _reset(self) -> None:
         """Private function to set selection to None, thereby prompting it to be randomised"""

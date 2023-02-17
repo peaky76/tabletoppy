@@ -8,7 +8,7 @@ Foobar = Enum("Foobar", ["ALPHA", "BETA", "GAMMA"])
 
 def test_initialize_randomisable_correctly_sets_options():
     randomisable = Randomisable(Foobar)
-    assert Foobar == randomisable.options
+    assert Foobar == randomisable._options
 
 
 def test_initialize_randomisable_correctly_sets_selection():
@@ -40,7 +40,7 @@ def test_randomiser_generates_random_integer_with_options_as_limit(mocker):
     mock_random.randint.return_value = 1
     randomisable = Randomisable(Foobar)
     randomisable._randomiser()
-    mock_random.randint.assert_called_with(1, len(randomisable.options))
+    mock_random.randint.assert_called_with(1, len(randomisable._options))
 
 
 def test_reset_invokes_randomiser(mocker):
