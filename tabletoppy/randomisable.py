@@ -1,13 +1,13 @@
 from abc import ABC
 from enum import Enum
 import random
-from typing import Optional, Type, TypeVar
+from typing import Type, TypeVar
 
 _E = TypeVar("_E", bound=Enum)
 
 
 class Randomisable(ABC):
-    def __init__(self, options: Type[_E], selection: Optional[_E] = None):
+    def __init__(self, options: Type[_E], selection: _E | None = None):
         """Abstract base class for any object that can be randomised to create a selection, such as a coin (by tossing), a dice (by rolling) or a card (by drawing)
 
         :param options: An Enum representing the range of values from which the selection will be made
@@ -19,7 +19,7 @@ class Randomisable(ABC):
         self.selection = selection
 
     @property
-    def selection(self) -> _E:
+    def selection(self) -> _E:  # type: ignore
         """Getter for the current selection
 
         :return: The currently selected option
@@ -28,7 +28,7 @@ class Randomisable(ABC):
         return self._selection
 
     @selection.setter
-    def selection(self, value: Optional[Enum] = None) -> None:
+    def selection(self, value: _E | None = None) -> None:
         """Setter for the current selection
 
         :param value: The option which will become the new selection, defaults to None at which point an option will be selected at random
