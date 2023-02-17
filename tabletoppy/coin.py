@@ -18,9 +18,6 @@ class Coin(Randomisable):
         """
         super().__init__(Coin.Face, face)
 
-    def __str__(self):
-        return f"Coin showing {self.face.name}"
-
     @property
     def face(self) -> Face:
         """The face currently displayed to the world
