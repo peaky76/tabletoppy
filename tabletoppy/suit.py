@@ -17,8 +17,4 @@ class Suit(Enum):
         self._unicode_ = unicode
 
     def __str__(self):
-        return self.name
-
-    @property
-    def unicode(self):
         return self._unicode_
