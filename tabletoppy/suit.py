@@ -15,7 +15,7 @@ class Suit(Enum):
     CLUBS = "\u2663"
     DIAMONDS = "\u2666"
 
-    def __new__(cls, *args, **kwds):
+    def __new__(cls, *args, **kwargs):
         """A custom __new__ method to ensure that the value of each member is the next integer in the sequence
 
         :return: A new instance of the Suit Enum
