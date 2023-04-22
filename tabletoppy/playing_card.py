@@ -32,6 +32,9 @@ class PlayingCard:
         QUEEN = 12
         KING = 13
 
+        def __str__(self):
+            return str(self.value) if 2 <= self.value <= 10 else self.name[0]
+
     def __init__(self, value: int | str, suit: _E | None = None):
         """Initializer for a playing card object
 
@@ -51,9 +54,7 @@ class PlayingCard:
         """
         if self.value is PlayingCard.Value.JOKER:
             return "Joker"
-        if 2 <= self.value.value <= 10:
-            return str(self.value.value) + str(self.suit)
-        return self.value.name[0] + str(self.suit)
+        return str(self.value) + str(self.suit)
 
     @property
     def suit(self) -> _E:
