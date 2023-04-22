@@ -11,6 +11,10 @@ def test_playing_card_can_be_initialised_with_str_value_and_suit():
     assert PlayingCard("Ace", Suit.HEARTS)
 
 
+def test_playing_card_can_be_initialised_with_alt_str_value_and_suit():
+    assert PlayingCard("Deuce", Suit.HEARTS)
+
+
 def test_playing_card_can_be_initialised_with_joker_and_no_suit():
     assert PlayingCard("Joker")
 

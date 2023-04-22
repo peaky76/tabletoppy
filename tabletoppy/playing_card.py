@@ -32,6 +32,10 @@ class PlayingCard:
         QUEEN = 12
         KING = 13
 
+        # Alternative names for the values
+        DEUCE = TWO
+        TREY = THREE
+
         def __str__(self):
             return str(self.value) if 2 <= self.value <= 10 else self.name[0]
 
