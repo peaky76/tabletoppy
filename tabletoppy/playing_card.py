@@ -43,6 +43,18 @@ class PlayingCard:
         self.value = value
         self.suit = suit
 
+    def __str__(self) -> str:
+        """String representation of a playing card
+
+        :return: The string representation of a playing card
+        :rtype: str
+        """
+        if self.value is PlayingCard.Value.JOKER:
+            return "Joker"
+        if 2 <= self.value.value <= 10:
+            return str(self.value.value) + str(self.suit)
+        return self.value.name[0] + str(self.suit)
+
     @property
     def suit(self) -> _E:
         """Getter for the suit of the playing card
