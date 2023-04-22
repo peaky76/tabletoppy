@@ -26,6 +26,14 @@ class PlayingCard:
         self.suit = suit
 
     @property
+    def suit(self) -> _E:
+        return self._suit
+
+    @suit.setter
+    def suit(self, suit: _E) -> None:
+        self._suit = suit
+
+    @property
     def value(self) -> Value:
         return self._value
 
