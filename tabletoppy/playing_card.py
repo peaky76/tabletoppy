@@ -22,9 +22,16 @@ class PlayingCard:
         KING = 13
 
     def __init__(self, value: int | str, suit: _E):
-        self.value = (
-            PlayingCard.Value(value)
-            if isinstance(value, int)
-            else PlayingCard.Value[value.upper()]
-        )
+        self.value = value
         self.suit = suit
+
+    @property
+    def value(self) -> Value:
+        return self._value
+
+    @value.setter
+    def value(self, value: Value) -> None:
+        if isinstance(value, int):
+            self._value = PlayingCard.Value(value)
+        else:
+            self._value = PlayingCard.Value[value.upper()]
