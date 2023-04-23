@@ -1,6 +1,8 @@
 from enum import Enum
 from typing import TypeVar
 
+from .rank import Rank
+
 
 _E = TypeVar("_E", bound=Enum)
 
@@ -14,40 +16,15 @@ class PlayingCard:
     :rtype: PlayingCard
     """
 
-    class Value(Enum):
-        """An Enum representing the values of a playing card"""
-
-        JOKER = 0
-        ACE = 1
-        TWO = 2
-        THREE = 3
-        FOUR = 4
-        FIVE = 5
-        SIX = 6
-        SEVEN = 7
-        EIGHT = 8
-        NINE = 9
-        TEN = 10
-        JACK = 11
-        QUEEN = 12
-        KING = 13
-
-        # Alternative names for the values
-        DEUCE = TWO
-        TREY = THREE
-
-        def __str__(self):
-            return str(self.value) if 2 <= self.value <= 10 else self.name[0]
-
-    def __init__(self, value: int | str, suit: _E | None = None):
+    def __init__(self, rank: int | str, suit: _E | None = None):
         """Initializer for a playing card object
 
-        :param value: The value of the playing card, can be either an int or a str
-        :type value: int or str
+        :param rank: The rank of the playing card, can be either an int or a str
+        :type rank: int or str
         :param suit: The suit of the playing card, defaults to None
         :type suit: Optional[_E], optional
         """
-        self.value = value
+        self.rank = rank
         self.suit = suit
 
     def __str__(self) -> str:
@@ -56,9 +33,9 @@ class PlayingCard:
         :return: The string representation of a playing card
         :rtype: str
         """
-        if self.value is PlayingCard.Value.JOKER:
+        if self.rank is Rank.JOKER:
             return "Joker"
-        return str(self.value) + str(self.suit)
+        return str(self.rank) + str(self.suit)
 
     @property
     def suit(self) -> _E:
@@ -72,25 +49,25 @@ class PlayingCard:
     @suit.setter
     def suit(self, suit: _E | None) -> None:
         """Setter for the suit of the playing card"""
-        if self.value is PlayingCard.Value.JOKER and suit is not None:
+        if self.rank is Rank.JOKER and suit is not None:
             raise TypeError("Joker cannot have a suit")
-        if self.value is not PlayingCard.Value.JOKER and suit is None:
+        if self.rank is not Rank.JOKER and suit is None:
             raise TypeError("Playing card must have a suit")
         self._suit = suit
 
     @property
-    def value(self) -> Value:
-        """Getter for the value of the playing card
+    def rank(self) -> Rank:
+        """Getter for the rank of the playing card
 
-        :return: The value of the playing card
+        :return: The rank of the playing card
         :rtype: Value
         """
-        return self._value
+        return self._rank
 
-    @value.setter
-    def value(self, value: Value) -> None:
-        """Setter for the value of the playing card"""
-        if isinstance(value, int):
-            self._value = PlayingCard.Value(value)
+    @rank.setter
+    def rank(self, rank: int | str) -> None:
+        """Setter for the rank of the playing card"""
+        if isinstance(rank, int):
+            self._rank = Rank(rank)
         else:
-            self._value = PlayingCard.Value[value.upper()]
+            self._rank = Rank[rank.upper()]
