@@ -20,7 +20,7 @@ class Deck:
         pass
 
     def draw(self):
-        pass
+        return self.cards.pop()
 
     def shuffle(self):
         pass
