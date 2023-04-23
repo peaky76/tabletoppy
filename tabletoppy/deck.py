@@ -13,7 +13,7 @@ class Deck:
         :param packs: The number of packs to add to the deck, defaults to 1
         :type packs: int, optional
         """
-        regular_cards = [Card(n, suit) for n in range(1, 14) for suit in Suit] * packs
+        regular_cards = [Card(n, suit) for suit in Suit for n in range(1, 14)] * packs
         added_cards = [Card("Joker")] * jokers
         self.cards = deque(regular_cards + added_cards)
 
