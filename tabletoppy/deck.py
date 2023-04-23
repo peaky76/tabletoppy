@@ -6,10 +6,7 @@ class Deck:
     def __init__(self, jokers: int = 0):
         """Initializer for a deck object"""
         self.cards = [
-            PlayingCard(value.value, suit)
-            for value in PlayingCard.Value
-            for suit in Suit
-            if value is not PlayingCard.Value.JOKER
+            PlayingCard(value, suit) for value in range(1, 14) for suit in Suit
         ]
         if jokers:
             self.cards.extend([PlayingCard("Joker")] * jokers)
