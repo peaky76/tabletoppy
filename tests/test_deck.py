@@ -43,6 +43,19 @@ def test_deck_add_to_top_card_goes_to_end_of_deque():
     assert "6♠" == str(deck.cards.pop())
 
 
+def test_deck_cut_returns_the_cut_card(mocker):
+    deck = Deck()
+    mocker.patch("tabletoppy.deck.randint", return_value=26)
+    assert "7♣" == str(deck.cut())
+
+
+def test_deck_cut_alters_order_of_deck():
+    deck = Deck()
+    deck.cut()
+    assert "A♠" != str(deck.cards.popleft())
+    assert "K♦" != str(deck.cards.pop())
+
+
 def test_deck_draw_returns_top_card_in_deck():
     deck = Deck()
     assert "K♦" == str(deck.draw())

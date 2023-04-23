@@ -1,4 +1,5 @@
 from collections import deque
+from random import randint
 from .playing_card import PlayingCard as Card
 from .suit import Suit
 
@@ -32,8 +33,15 @@ class Deck:
         """
         self.cards.append(card)
 
-    def cut(self):
-        pass
+    def cut(self) -> Card:
+        """Cuts the deck at a random point, returns the card at that point and re-combines the cut deck
+
+        :return: The card at the cut point
+        :rtype: PlayingCard
+        """
+        i = randint(0, len(self.cards) - 1)
+        self.cards = deque(list(self.cards)[i:] + list(self.cards)[:i])
+        return self.cards[0]
 
     def draw(self) -> Card:
         """Draws the top card from the deck
