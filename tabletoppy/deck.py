@@ -17,6 +17,15 @@ class Deck:
         added_cards = [Card("Joker")] * jokers
         self.cards = deque(regular_cards + added_cards)
 
+    @property
+    def size(self) -> int:
+        """Returns the number of cards in the deck
+
+        :return: The number of cards in the deck
+        :rtype: int
+        """
+        return len(self.cards)
+
     def add_to_bottom(self, card: Card) -> None:
         """Adds a card to the bottom of the deck
 

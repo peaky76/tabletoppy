@@ -32,6 +32,11 @@ def test_deck_last_card_is_joker_in_standard_deck_with_jokers_and_standard_order
     assert "Joker" == str(deck.cards.pop())
 
 
+def test_deck_size_property():
+    deck = Deck()
+    assert 52 == deck.size
+
+
 def test_deck_add_to_bottom_card_goes_to_front_of_deque():
     deck = Deck()
     deck.add_to_bottom("6♠")
