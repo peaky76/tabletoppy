@@ -1,12 +1,14 @@
-from .playing_card import PlayingCard
+from .playing_card import PlayingCard as Card
 from .suit import Suit
 
 
 class Deck:
     def __init__(self, jokers: int = 0):
-        """Initializer for a deck object"""
-        self.cards = [
-            PlayingCard(value, suit) for value in range(1, 14) for suit in Suit
-        ]
-        if jokers:
-            self.cards.extend([PlayingCard("Joker")] * jokers)
+        """Initializes a standard deck of playing cards, default is a standard 52 card deck
+
+        param jokers: The number of jokers to add to the deck, defaults to 0
+        type jokers: int, optional
+        """
+        self.cards = [Card(val, suit) for val in range(1, 14) for suit in Suit] + (
+            [Card("Joker")] * jokers
+        )
