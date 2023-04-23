@@ -29,3 +29,8 @@ def test_deck_last_card_is_king_of_diamonds_in_standard_deck_with_standard_order
 def test_deck_last_card_is_joker_in_standard_deck_with_jokers_and_standard_order():
     deck = Deck(jokers=2)
     assert "Joker" == str(deck.cards.pop())
+
+
+def test_deck_draw_returns_top_card_in_deck():
+    deck = Deck()
+    assert "K♦" == str(deck.draw())
