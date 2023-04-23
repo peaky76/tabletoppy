@@ -52,13 +52,13 @@ def test_deck_add_to_top_card_goes_to_end_of_deque():
 def test_deck_cut_returns_the_cut_card(mocker):
     deck = Deck()
     mocker.patch("tabletoppy.deck.randint", return_value=26)
-    assert "7♣" == str(deck.cut())
+    assert "A♣" == str(deck.cut())
 
 
 def test_deck_cut_applies_minimum_depth():
     deck = Deck()
     cut_card = deck.cut(min_depth=26)
-    assert "7♣" == str(cut_card)
+    assert "A♣" == str(cut_card)
 
 
 def test_deck_cut_raises_value_error_if_minimum_depth_below_range():
