@@ -24,8 +24,8 @@ class PlayingCard:
         :param suit: The suit of the playing card, defaults to None
         :type suit: Optional[_E], optional
         """
-        self.rank = rank
-        self.suit = suit
+        self.rank = rank  # type: ignore
+        self.suit = suit  # type: ignore
 
     def __str__(self) -> str:
         """String representation of a playing card
