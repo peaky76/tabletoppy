@@ -12,3 +12,15 @@ class Deck:
         self.cards = [Card(val, suit) for val in range(1, 14) for suit in Suit] + (
             [Card("Joker")] * jokers
         )
+
+    def cut(self):
+        pass
+
+    def draw(self):
+        pass
+
+    def shuffle(self):
+        pass
+
+    def sort(self):
+        pass
