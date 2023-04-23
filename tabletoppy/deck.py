@@ -45,6 +45,7 @@ class Deck:
     def cut(self, min_depth: int = 1) -> Card:
         """Cuts the deck at a random point, returns the card at that point and re-combines the cut deck
 
+        :param min_depth: The minimum depth to cut the deck, defaults to 1
         :return: The card at the cut point
         :rtype: PlayingCard
         """
