@@ -80,6 +80,18 @@ def test_deck_cut_alters_order_of_deck():
     assert "K♦" != str(deck.cards.pop())
 
 
+def test_deck_deal_returns_hand_of_cards():
+    deck = Deck()
+    hand = deck.deal(5)
+    assert 5 == hand.size
+
+
+def test_deck_deal_returns_top_cards_in_deck_as_new_deck():
+    deck = Deck()
+    hand = deck.deal(5)
+    assert ["K♦", "Q♦", "J♦", "10♦", "9♦"] == [str(card) for card in hand.cards]
+
+
 def test_deck_draw_returns_top_card_in_deck():
     deck = Deck()
     assert "K♦" == str(deck.draw())
