@@ -48,10 +48,10 @@ class Deck:
         :return: The card at the cut point
         :rtype: PlayingCard
         """
-        if min_depth < 1 or min_depth > self.size / 2:
-            raise ValueError(
-                f"Minimum depth must be between 1 and {self.size / 2}, inclusive"
-            )
+        if not 1 <= min_depth <= self.size / 2:
+            msg = f"Min depth must be between 1 and {self.size / 2}, inclusive"
+            raise ValueError(msg)
+
         i = randint(min_depth, (self.size - min_depth))
         self.cards = deque(list(self.cards)[i:] + list(self.cards)[:i])
         return self.cards[0]
