@@ -57,6 +57,19 @@ class Deck:
         self.cards = deque(list(self.cards)[i:] + list(self.cards)[:i])
         return self.cards[0]
 
+    def deal(self, hand_size: int) -> "Deck":
+        """Deals a hand of cards
+
+        :param hand_size: The number of cards to deal
+        :type hand_size: int
+        :return: The hand of cards
+        :rtype: Deck
+        """
+        hand = Deck(packs=0)
+        for _ in range(hand_size):
+            hand.add_to_top(self.draw())
+        return hand
+
     def draw(self) -> Card:
         """Draws the top card from the deck
 
