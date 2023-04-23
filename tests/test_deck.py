@@ -61,6 +61,18 @@ def test_deck_cut_applies_minimum_depth():
     assert "7♣" == str(cut_card)
 
 
+def test_deck_cut_raises_value_error_if_minimum_depth_below_range():
+    deck = Deck()
+    with pytest.raises(ValueError):
+        deck.cut(min_depth=0)
+
+
+def test_deck_cut_raises_value_error_if_minimum_depth_above_range():
+    deck = Deck()
+    with pytest.raises(ValueError):
+        deck.cut(min_depth=30)
+
+
 def test_deck_cut_alters_order_of_deck():
     deck = Deck()
     deck.cut(min_depth=2)
