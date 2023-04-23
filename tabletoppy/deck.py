@@ -4,7 +4,7 @@ from .suit import Suit
 
 
 class Deck:
-    def __init__(self, jokers: int = 0, packs: int = 1):
+    def __init__(self, *, jokers: int = 0, packs: int = 1):
         """Initializes a standard deck of playing cards, default is a standard 52 card deck
 
         :param jokers: The number of jokers to add to the deck, defaults to 0
@@ -19,7 +19,12 @@ class Deck:
     def cut(self):
         pass
 
-    def draw(self):
+    def draw(self) -> Card:
+        """Draws the top card from the deck
+
+        :return: The top card from the deck
+        :rtype: PlayingCard
+        """
         return self.cards.pop()
 
     def shuffle(self):
