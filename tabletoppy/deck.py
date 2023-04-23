@@ -33,13 +33,13 @@ class Deck:
         """
         self.cards.append(card)
 
-    def cut(self) -> Card:
+    def cut(self, min_depth: int = 1) -> Card:
         """Cuts the deck at a random point, returns the card at that point and re-combines the cut deck
 
         :return: The card at the cut point
         :rtype: PlayingCard
         """
-        i = randint(0, len(self.cards) - 1)
+        i = randint(min_depth, (len(self.cards) - min_depth))
         self.cards = deque(list(self.cards)[i:] + list(self.cards)[:i])
         return self.cards[0]
 
