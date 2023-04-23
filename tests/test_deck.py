@@ -83,3 +83,10 @@ def test_deck_cut_alters_order_of_deck():
 def test_deck_draw_returns_top_card_in_deck():
     deck = Deck()
     assert "K♦" == str(deck.draw())
+
+
+def test_deck_shuffle_returns_shuffled_deck():
+    deck = Deck()
+    deck.shuffle()
+    assert "A♠" != str(deck.cards.popleft())
+    assert "K♦" != str(deck.cards.pop())

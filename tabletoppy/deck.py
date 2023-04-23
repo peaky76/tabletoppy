@@ -1,5 +1,5 @@
 from collections import deque
-from random import randint
+from random import randint, shuffle
 from .playing_card import PlayingCard as Card
 from .suit import Suit
 
@@ -65,8 +65,9 @@ class Deck:
         """
         return self.cards.pop()
 
-    def shuffle(self):
-        pass
+    def shuffle(self) -> None:
+        """Shuffles the deck in place"""
+        shuffle(self.cards)
 
     def sort(self):
         pass
