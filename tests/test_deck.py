@@ -11,6 +11,11 @@ def test_deck_init_with_jokers_creates_54_cards():
     assert 54 == len(deck.cards)
 
 
+def test_deck_with_multiple_packs_of_cards():
+    deck = Deck(packs=2)
+    assert 104 == len(deck.cards)
+
+
 def test_deck_first_card_is_ace_of_spades_in_standard_deck_with_standard_order():
     deck = Deck()
     assert "A♠" == str(deck.cards.popleft())
