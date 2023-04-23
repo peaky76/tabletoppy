@@ -16,6 +16,22 @@ class Deck:
         added_cards = [Card("Joker")] * jokers
         self.cards = deque(regular_cards + added_cards)
 
+    def add_to_bottom(self, card: Card) -> None:
+        """Adds a card to the bottom of the deck
+
+        :param card: The card to add to the bottom of the deck
+        :type card: PlayingCard
+        """
+        self.cards.appendleft(card)
+
+    def add_to_top(self, card: Card) -> None:
+        """Adds a card to the top of the deck
+
+        :param card: The card to add to the top of the deck
+        :type card: PlayingCard
+        """
+        self.cards.append(card)
+
     def cut(self):
         pass
 

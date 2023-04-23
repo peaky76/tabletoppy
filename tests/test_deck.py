@@ -31,6 +31,18 @@ def test_deck_last_card_is_joker_in_standard_deck_with_jokers_and_standard_order
     assert "Joker" == str(deck.cards.pop())
 
 
+def test_deck_add_to_bottom_card_goes_to_front_of_deque():
+    deck = Deck()
+    deck.add_to_bottom("6♠")
+    assert "6♠" == str(deck.cards.popleft())
+
+
+def test_deck_add_to_top_card_goes_to_end_of_deque():
+    deck = Deck()
+    deck.add_to_top("6♠")
+    assert "6♠" == str(deck.cards.pop())
+
+
 def test_deck_draw_returns_top_card_in_deck():
     deck = Deck()
     assert "K♦" == str(deck.draw())
