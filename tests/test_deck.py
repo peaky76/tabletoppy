@@ -1,3 +1,4 @@
+import pytest
 from tabletoppy.deck import Deck
 
 
@@ -49,9 +50,15 @@ def test_deck_cut_returns_the_cut_card(mocker):
     assert "7♣" == str(deck.cut())
 
 
+def test_deck_cut_applies_minimum_depth():
+    deck = Deck()
+    cut_card = deck.cut(min_depth=26)
+    assert "7♣" == str(cut_card)
+
+
 def test_deck_cut_alters_order_of_deck():
     deck = Deck()
-    deck.cut()
+    deck.cut(min_depth=2)
     assert "A♠" != str(deck.cards.popleft())
     assert "K♦" != str(deck.cards.pop())
 
