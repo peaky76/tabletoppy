@@ -3,7 +3,7 @@ from .suit import Suit
 
 
 class Deck:
-    def __init__(self):
+    def __init__(self, jokers: int = 0):
         """Initializer for a deck object"""
         self.cards = [
             PlayingCard(value.value, suit)
@@ -11,3 +11,5 @@ class Deck:
             for suit in Suit
             if value is not PlayingCard.Value.JOKER
         ]
+        if jokers:
+            self.cards.extend([PlayingCard("Joker")] * jokers)
