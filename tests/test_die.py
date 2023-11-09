@@ -3,7 +3,7 @@ from tabletoppy import Die
 
 def test_initialize_die_with_default_correctly_sets_sides():
     die = Die()
-    assert 6 == die.sides
+    assert die.sides == 6
 
 
 def test_initialize_die_with_default_correctly_sets_face():
@@ -13,7 +13,7 @@ def test_initialize_die_with_default_correctly_sets_face():
 
 def test_initialize_die_with_sides_correctly_sets_sides():
     die = Die(8)
-    assert 8 == die.sides
+    assert die.sides == 8
 
 
 def test_initialize_die_with_sides_correctly_sets_face():
@@ -23,12 +23,12 @@ def test_initialize_die_with_sides_correctly_sets_face():
 
 def test_initialize_die_with_face_correctly_sets_sides():
     die = Die(face=6)
-    assert 6 == die.sides
+    assert die.sides == 6
 
 
 def test_initialize_die_with_face_correctly_sets_face():
     die = Die(face=6)
-    assert 6 == die.face
+    assert die.face == 6
 
 
 def test_roll_randomly_determines_a_face_to_display(mocker):

@@ -1,18 +1,16 @@
-import random
 from tabletoppy import Coin
-
 
 [HEADS, TAILS] = Coin.Face
 
 
 def test_initialize_coin_with_heads():
     coin = Coin(HEADS)
-    assert HEADS == coin.face
+    assert coin.face == HEADS
 
 
 def test_initialize_coin_with_tails():
     coin = Coin(TAILS)
-    assert TAILS == coin.face
+    assert coin.face == TAILS
 
 
 def test_initialize_coin_default_produces_either_heads_or_tails():
@@ -57,10 +55,10 @@ def test_toss_randomly_determines_heads_or_tails(mocker):
 def test_turn_coin_displaying_heads_puts_tails_on_display():
     coin = Coin(HEADS)
     coin.turn()
-    assert TAILS == coin.face
+    assert coin.face == TAILS
 
 
 def test_turn_coin_displaying_tails_puts_heads_on_display():
     coin = Coin(TAILS)
     coin.turn()
-    assert HEADS == coin.face
+    assert coin.face == HEADS
