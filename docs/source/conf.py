@@ -1,7 +1,7 @@
-import os
 import sys
+from pathlib import Path
 
-sys.path.insert(0, os.path.abspath("../../tabletoppy"))
+sys.path.insert(0, Path("../../tabletoppy").resolve())
 
 # Configuration file for the Sphinx documentation builder.
 #

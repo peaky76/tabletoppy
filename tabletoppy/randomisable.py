@@ -1,6 +1,6 @@
+import random
 from abc import ABC
 from enum import Enum
-import random
 from typing import Type, TypeVar
 
 _E = TypeVar("_E", bound=Enum)

@@ -1,5 +1,6 @@
 from collections import deque
 from random import randint, shuffle
+
 from .playing_card import PlayingCard as Card
 from .suit import Suit
 
