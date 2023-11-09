@@ -36,9 +36,9 @@ jobs:
         run: |
           poetry install
 
-      - name: Run black
+      - name: Run ruff
         run: |
-          poetry run black --check --verbose .
+          poetry run ruff check .
 
       - name: Run static type checking
         run: |
