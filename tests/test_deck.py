@@ -90,8 +90,9 @@ def test_deck_deal_returns_hand_of_cards():
 def test_deck_deal_returns_top_cards_in_deck_as_new_deck():
     deck = Deck()
     hand = deck.deal(5)
-    assert ["K♦", "Q♦", "J♦", "10♦", "9♦"] == [str(card) for card in hand.cards]
-
+    actual = [str(card) for card in hand.cards]
+    expected = ["K♦", "Q♦", "J♦", "10♦", "9♦"]
+    assert actual == expected
 
 def test_deck_draw_returns_top_card_in_deck():
     deck = Deck()
