@@ -21,7 +21,7 @@ class Randomisable(ABC):
     def __str__(self):
         return f"{self.__class__.__name__} showing {self._selection.name}"
 
-    def get__selection(self) -> _E:  # type: ignore
+    def get__selection(self) -> Enum:
         """Getter for the current selection
 
         :return: The currently selected option
